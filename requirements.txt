@@ -1,0 +1,4 @@
+# I usually do a "pip freeze > requirements.txt" to get all the dependencies and versions,
+# doing it this way here to make it easier for who runs it
+pandas
+aiohttp
