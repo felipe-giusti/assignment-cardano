@@ -10,8 +10,7 @@ class TransactionModel(ABC):
     rate: float
     transaction_costs: float
 
-
-    def get_transaction_costs(self, country):
+    def get_transaction_cost(self, country):
         if country == 'GB':
             return (self.notional*self.rate) - self.notional
         elif country == 'NL':

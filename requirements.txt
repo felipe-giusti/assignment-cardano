@@ -4,3 +4,4 @@ pandas
 aiohttp
 fastapi
 uvicorn
+pytest

@@ -17,7 +17,7 @@ async def _process_transaction(session, transaction: TransactionModel) -> Transa
 
     # On the assignment there were two columns mentioned, "transaction_costs" and "transactions_costs".
     # I'm assuming that is a typing error
-    transaction.transaction_costs = transaction.get_transaction_costs(gleif_dto.country_code)
+    transaction.transaction_costs = transaction.get_transaction_cost(gleif_dto.country_code)
     
     return transaction
 
