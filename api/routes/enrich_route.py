@@ -10,9 +10,7 @@ async def enrich_file(file: UploadFile = File(...)):
 
     file_contents = await file.read()
 
-    data = await enrich_data(io.BytesIO(file_contents))
-
-    csv_data = data.to_csv(index=False)
+    csv_data = await enrich_data(io.BytesIO(file_contents))
 
     csv_io = io.StringIO(csv_data)
 

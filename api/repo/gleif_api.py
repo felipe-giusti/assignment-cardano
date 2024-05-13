@@ -1,5 +1,6 @@
 
 
+# because it is a DTO, decided to leave this here instead of models module
 class GleifDTO:
     def __init__(self, legal_name, bic, country_code) -> None:
         self.legal_name = legal_name
