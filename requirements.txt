@@ -2,3 +2,5 @@
 # doing it this way here to make it easier for who runs it
 pandas
 aiohttp
+fastapi
+uvicorn

@@ -1,7 +1,7 @@
 import aiohttp, asyncio, os, sys
 import pandas as pd
-import config
-from repo import gleif_api
+import api.config as config
+from api.repo import gleif_api
 
 
 
@@ -44,25 +44,12 @@ async def _process_data(df: pd.DataFrame) -> pd.DataFrame:
         return processed_df
 
 
-async def enrich_data(input_path: str, output_path: str):
+async def enrich_data(data):
     # may change later
-    raw_df = pd.read_csv(input_path)
+    raw_df = pd.read_csv(data)
 
     processed_df = await _process_data(raw_df)
 
-    pd.DataFrame.to_csv(processed_df, output_path)
+    return processed_df
+    # pd.DataFrame.to_csv(processed_df, output_path)
 
-
-
-if __name__ == "__main__":
-
-    input_path = config.INPUT_PATH
-    output_path = config.OUTPUT_PATH
-
-    args = sys.argv[1:]
-    if args:
-        input_path = args[0]
-        if len(args) > 1:
-            output_path = args[1]
-    
-    asyncio.run(enrich_data(input_path, output_path))
